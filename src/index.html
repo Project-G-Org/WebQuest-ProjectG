@@ -4,43 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/shared.css">
+    <link rel="stylesheet" href="./styles/login.css">
     <title>Bibliotecas</title>
  </head>
  <body>
-   <header>
-      <div id="logo-container">logo <img src="#" alt="logo"></div>
-      
-      <div id="nav-container">
-         <nav id="navbar">
-            <ul>
-               <li class="nav-item"><a href="./pages/quests.html">Questionarios</a></li>
-               <li class="nav-item"><a href="./pages/about.html">Saiba mais</a></li>
-            </ul>
-         </nav>
-     </div>
-   </header>
-   
    <main>
-    <section id="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel deleniti quam aliquam. Quam consequatur veniam omnis mollitia saepe facilis accusantium voluptatem sunt doloribus! Quasi error quam unde quas ullam dolor.</section>
+        <section id="login-screen">
+            <h1 id="login-title">Faça Login</h1>
+            <form method="post" id="login-form">
+                <section id="forms-inpt">
+                    <label for="user-inpt">Nome de Usuário:</label> 
+                    <input type="text" name="User" id="user-inpt"> 
+                    <label for="password-in">Senha:</label> 
+                    <input type="password" name="Pass" id="password-in"> 
+                </section>
+                <a id="sbmt-btn" class="btn" href="./pages/about.html">login</a>
+            </form>
+        </section>
    </main>
 
     <footer>
-      <section id="brand">
-          logo
-
-          <img src="#" alt="projectg-logo">
-      </section>
-
-      <section id="authors">
-          <ul id="authors-list">
-              <li class="authors-item">Vitor Luiz</li>
-              <li class="authors-item">Gabriel Spinola</li>
-              <li class="authors-item">Lucas Vinicius</li>
-              <li class="authors-item">Guilherme Comunian</li>
-              <li class="authors-item">Supremo Felipe</li>
-          </ul>
-      </section>
+        <section id="authors">
+            <span>Vitor Luiz | Gabriel Spinola | Lucas Vinicius | Guilherme Comunian | Supremo Felipe</span>
+        </section>
   </footer>
  </body>
  </html>
