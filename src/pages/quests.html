@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/shared.css">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../scripts/validateQuests.js"></script>
     <title>Questionarios</title>
 </head>
 <body>
@@ -27,74 +28,72 @@
         </div>
     </header>
 
-    <main>
+     <main>
         <section id="formularies">
             <div class="quest-container">
-                <form method="GET">
-                    <select name="question" id="question-id_placeholder">
-                        <option class="question-item" value="1">a: </option>
-                        <option class="question-item" value="2">b: </option>
-                        <option class="question-item" value="3">c: </option>
-                        <option class="question-item" value="4">d: </option>
+                <form method="get" id="form-question-1">
+                    <select name="question" id="question-1-selection">
+                        <option class="question-item" value="a">a: </option>
+                        <option class="question-item" value="b">b: </option>
+                        <option class="question-item" value="c">c: </option>
+                        <option class="question-item" value="d">d: </option>
+                    </select>
 
-                        <input type="submit" value="submit-quest-id_placeholder">
+                </form>
+            </div>
+            
+            
+            <div class="quest-container">
+                <form method="GET">
+                    <select name="question1" id="question-2-selection">
+                        <option class="question-item" value="a">a: </option>
+                        <option class="question-item" value="b">b: </option>
+                        <option class="question-item" value="c">c: </option>
+                        <option class="question-item" value="d">d: </option>
+
                     </select>
                 </form>
             </div>
 
             <div class="quest-container">
                 <form method="GET">
-                    <select name="question" id="question-id_placeholder">
-                        <option class="question-item" value="1">a: </option>
-                        <option class="question-item" value="2">b: </option>
-                        <option class="question-item" value="3">c: </option>
-                        <option class="question-item" value="4">d: </option>
+                    <select name="question" id="question-3-selection">
+                        <option class="question-item" value="a">a: </option>
+                        <option class="question-item" value="b">b: </option>
+                        <option class="question-item" value="c">c: </option>
+                        <option class="question-item" value="d">d: </option>
 
-                        <input type="submit" value="submit-quest-id_placeholder">
                     </select>
                 </form>
             </div>
 
             <div class="quest-container">
                 <form method="GET">
-                    <select name="question" id="question-id_placeholder">
-                        <option class="question-item" value="1">a: </option>
-                        <option class="question-item" value="2">b: </option>
-                        <option class="question-item" value="3">c: </option>
-                        <option class="question-item" value="4">d: </option>
+                    <select name="question" id="question-4-selection">
+                        <option class="question-item" value="a">a: </option>
+                        <option class="question-item" value="b">b: </option>
+                        <option class="question-item" value="c">c: </option>
+                        <option class="question-item" value="d">d: </option>
 
-                        <input type="submit" value="submit-quest-id_placeholder">
-                    </select>
-                </form>
-            </div>
-
-            <div class="quest-container">
-                <form method="GET">
-                    <select name="question" id="question-id_placeholder">
-                        <option class="question-item" value="1">a: </option>
-                        <option class="question-item" value="2">b: </option>
-                        <option class="question-item" value="3">c: </option>
-                        <option class="question-item" value="4">d: </option>
-
-                        <input type="submit" value="submit-quest-id_placeholder">
                     </select>
                 </form>
             </div>
 
             <div class="quest-container">
                 <form>
-                    <select name="question" id="question-id_placeholder">
-                        <option class="question-item" value="1">a: </option>
-                        <option class="question-item" value="2">b: </option>
-                        <option class="question-item" value="3">c: </option>
-                        <option class="question-item" value="4">d: </option>
+                    <select name="question" id="question-5-selection">
+                        <option class="question-item" value="a">a: </option>
+                        <option class="question-item" value="b">b: </option>
+                        <option class="question-item" value="c">c: </option>
+                        <option class="question-item" value="d">d: </option>
 
-                        <input type="submit" value="submit-quest-id_placeholder">
                     </select>
+                    <input type="submit" value="submit-quest-id_placeholder">
                 </form>
             </div>
         </section>
     </main>
+
 
     <footer>
         <section id="brand">
