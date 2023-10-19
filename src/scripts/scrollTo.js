@@ -1,3 +1,0 @@
-/**
- * Funcionalidade de scroll
- */
