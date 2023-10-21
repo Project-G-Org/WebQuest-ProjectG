@@ -24,7 +24,12 @@ $(document).ready(function () {
 
         $("#result").css("visibility", "visible")
 
-        $("#wrong-questions").text("As questões " + wrongQuestions + " Estão erradas")
+        if(totalPoints < 5){
+            $("#wrong-questions").text("As questões " + wrongQuestions + "Estão erradas")
+            $("#wrong-questions-title").css("visibility", "visible")
+            $("#wrong-questions-title").css("display", "block")
+        }
+
         $("#total-grade").text(totalPoints + "/5");
     });
 

@@ -30,11 +30,10 @@ $(document).ready(function () {
         });
         
         if (nme === User.name && password === User.pass) {
-            alert("ta tudo certo mesmo, passou")
             window.location.replace('pages/about.html')
         }
         else{
-            alert("não achei")
+            alert("Cadástro Não Localizado")
         }
 
     });

@@ -1,3 +1,8 @@
 #result {
     visibility: hidden;
 }
+
+#wrong-questions-title {
+    visibility: hidden;
+    display: none;
+}
