@@ -1,8 +1,8 @@
 #result {
-    visibility: hidden;
+    visibility: hidden; /*Não Mudar*/
 }
 
 #wrong-questions-title {
-    visibility: hidden;
-    display: none;
+    visibility: hidden; /*Não Mudar*/
+    display: none; /*Não Mudar*/
 }
