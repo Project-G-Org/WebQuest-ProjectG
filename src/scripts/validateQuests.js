@@ -25,7 +25,7 @@ $(document).ready(function () {
         $("#result").css("visibility", "visible")
 
         if(totalPoints < 5){
-            $("#wrong-questions").text("As questões " + wrongQuestions + "Estão erradas")
+            $("#wrong-questions").text("As questões " + wrongQuestions + " Estão erradas")
             $("#wrong-questions-title").css("visibility", "visible")
             $("#wrong-questions-title").css("display", "block")
         }
