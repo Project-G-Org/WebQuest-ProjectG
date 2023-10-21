@@ -28,9 +28,18 @@ $(document).ready(function () {
             $("#wrong-questions").text("As questões " + wrongQuestions + " Estão erradas")
             $("#wrong-questions-title").css("visibility", "visible")
             $("#wrong-questions-title").css("display", "block")
+            $("#wrong-questions").css("visibility", "visible")
+            $("#wrong-questions").css("display", "flex")
+        }
+        else {
+            $("#wrong-questions").css("visibility", "hidden")
+            $("#wrong-questions").css("display", "none")
+            $("#wrong-questions-title").css("visibility", "hidden")
+            $("#wrong-questions-title").css("display", "none")    
         }
 
         $("#total-grade").text(totalPoints + "/5");
+
     });
 
 });
