@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/shared.css">
-
+    <link rel="stylesheet" href="../styles/quests.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="../scripts/validateQuests.js"></script>
     <title>Questionarios</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
         <div id="nav-container">
            <nav id="navbar">
               <ul class="links">
-                <li class="nav-item"><a href="./about.html">Home</a></li>
+                <li class="nav-item"><a href="./home.html">Home</a></li>
                 <li class="nav-item"><a href="./material.html">Material de estudo</a></li>
                 <li class="nav-item"><a class="atv" href="../pages/quests.html">Questionarios</a></li>
               </ul>
@@ -27,6 +29,7 @@
             <div class="quest-container">
                 <form method="get" id="form-question-1">
                     <select name="question" id="question-1-selection">
+                        <option class="question-item" disabled value="null" selected> ---- Selecione Sua Resposta ----</option>
                         <option class="question-item" value="a">a: </option>
                         <option class="question-item" value="b">b: </option>
                         <option class="question-item" value="c">c: </option>
@@ -40,6 +43,7 @@
             <div class="quest-container">
                 <form method="GET">
                     <select name="question1" id="question-2-selection">
+                        <option class="question-item" disabled value="null" selected> ---- Selecione Sua Resposta ----</option>
                         <option class="question-item" value="a">a: </option>
                         <option class="question-item" value="b">b: </option>
                         <option class="question-item" value="c">c: </option>
@@ -52,6 +56,7 @@
             <div class="quest-container">
                 <form method="GET">
                     <select name="question" id="question-3-selection">
+                        <option class="question-item" disabled value="null" selected> ---- Selecione Sua Resposta ----</option>
                         <option class="question-item" value="a">a: </option>
                         <option class="question-item" value="b">b: </option>
                         <option class="question-item" value="c">c: </option>
@@ -64,6 +69,7 @@
             <div class="quest-container">
                 <form method="GET">
                     <select name="question" id="question-4-selection">
+                        <option class="question-item" disabled value="null" selected> ---- Selecione Sua Resposta ----</option>
                         <option class="question-item" value="a">a: </option>
                         <option class="question-item" value="b">b: </option>
                         <option class="question-item" value="c">c: </option>
@@ -76,6 +82,7 @@
             <div class="quest-container">
                 <form>
                     <select name="question" id="question-5-selection">
+                        <option class="question-item" disabled value="null" selected> ---- Selecione Sua Resposta ----</option>
                         <option class="question-item" value="a">a: </option>
                         <option class="question-item" value="b">b: </option>
                         <option class="question-item" value="c">c: </option>
@@ -86,6 +93,15 @@
                 </form>
             </div>
         </section>
+
+        <section id="result">
+            <h1>Resultado</h1>
+            <h5 id="wrong-questions-title">Questões Erradas: </h5>
+            <span id="wrong-questions"></span>
+            <h5>Pontuação: </h5>
+            <Span id="total-grade"></Span>
+        </section>
+
     </main>
 
     <footer>

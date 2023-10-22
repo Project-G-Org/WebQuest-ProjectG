@@ -1,0 +1,13 @@
+#result {
+    visibility: hidden; /*Não Mudar*/
+}
+
+#wrong-questions-title {
+    visibility: hidden; /*Não Mudar*/
+    display: none; /*Não Mudar*/
+}
+
+#wrong-questions {
+    visibility: hidden;
+}
+
