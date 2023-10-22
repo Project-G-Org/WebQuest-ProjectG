@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    
+    sessionStorage.clear();
 
     $("#login-form").submit(function(e){
 
@@ -31,8 +33,8 @@ $(document).ready(function () {
         
         if (nme === User.name && password === User.pass) {
             window.location.replace('pages/about.html')
-            document.cookie = "username="+User.name+";Max-age=2100";
-            document.cookie = "userpassword="+User.pass+";Max-age=2100";
+            // document.cookie = "username="+User.name+";Max-age=2100";
+            sessionStorage.setItem("userName", User.name);
         }
         else{
             alert("Cadástro Não Localizado")

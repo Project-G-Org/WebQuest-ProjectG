@@ -39,6 +39,7 @@ $(document).ready(function () {
         }
 
         $("#total-grade").text(totalPoints + "/5");
+        sessionStorage.setItem("finalGrade", totalPoints);
 
     });
 
