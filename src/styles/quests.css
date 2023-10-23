@@ -43,6 +43,27 @@ h1 {
     margin-top: 10px;
 }
 
+select {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+    width: 200px;
+    background-color: #983AF5;
+    color: white;
+}
+
+input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+    width: 200px;
+    margin-top: 5px;
+    background-color: #983AF5;
+    color: white;
+}
+
 #result {
     justify-content: flex-start;
     background-color: #D9D9D9;
