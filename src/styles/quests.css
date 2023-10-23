@@ -18,6 +18,7 @@ main {
     display: flex;
     align-items: center;
     height: 100%;
+    font-size: 40px;
     
 }
 
@@ -40,7 +41,8 @@ h1 {
 
 .content{
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 10px ;
+    margin-bottom: 15px;
 }
 
 select {
