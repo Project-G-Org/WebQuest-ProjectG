@@ -21,4 +21,11 @@ $(document).ready(function () {
         window.location.replace('../index.html');
     }
 
+    setInterval(function () {
+
+        if (sessionStorage.getItem('userName') == null){
+            window.location.replace('../index.html');
+        }
+    }, 15000);
+
 });
