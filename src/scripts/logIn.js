@@ -8,6 +8,8 @@ $(document).ready(function () {
 
         let nme = null;
         let password = null;
+        let nmeIndex = null;
+        let passwordIndex = null;
 
         var User = {
             name: $("#user-inpt").val(),
@@ -15,13 +17,14 @@ $(document).ready(function () {
         };
 
         var DBUser = {
-            name: ["admin", "Gay1234"],
-            pass: ["admin", "gay123"],
+            name: ["admin", "usuario1234"],
+            pass: ["admin", "usuario123"],
         };
 
-        DBUser.name.forEach(e => {
+        DBUser.name.forEach((e, i) => {
             if (e === User.name) {
                 nme = e;
+                nmeIndex = i;
             }
         });
 
@@ -31,9 +34,10 @@ $(document).ready(function () {
 
         };
 
-        DBUser.pass.forEach(e => {
+        DBUser.pass.forEach((e, i) => {
             if (e === User.pass) {
                 password = e;
+                passwordIndex = i;
             }
         });
 
@@ -43,7 +47,7 @@ $(document).ready(function () {
 
         };
         
-        if (nme === User.name && password === User.pass || nme === User.name && password === User.pass) {
+        if (nme === User.name && password === User.pass && passwordIndex === nmeIndex) {
             window.location.replace('pages/home.html');
             // document.cookie = "username="+User.name+";Max-age=2100";
             sessionStorage.setItem("userName", User.name);
