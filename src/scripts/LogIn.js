@@ -30,7 +30,7 @@ $(document).ready(function () {
         });
         
         if (nme === User.name && password === User.pass) {
-            window.location.replace('pages/about.html')
+            window.location.replace('pages/home.html')
         }
         else{
             alert("Cadástro Não Localizado")
