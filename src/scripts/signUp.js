@@ -4,9 +4,16 @@ $(document).ready(function () {
 
         e.preventDefault();
 
-        localStorage.setItem('localUsername', $('#user-inpt').val());
-        localStorage.setItem('localPassword', $('#password-inpt').val());
+        if ($('#user-inpt').val() === "" || $('#password-inpt').val() === ""){
 
-        window.location.replace('../index.html');
+            alert("Por Favor, Preencha os Campos");
+        }
+        else{
+
+            localStorage.setItem('localUsername', $('#user-inpt').val());
+            localStorage.setItem('localPassword', $('#password-inpt').val());
+
+            window.location.replace('../index.html');
+        }
     });
 });
