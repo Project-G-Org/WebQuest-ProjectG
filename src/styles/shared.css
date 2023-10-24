@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -12,7 +13,6 @@ header {
     text-decoration: none;
     background-color: #983AF5;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
@@ -24,8 +24,9 @@ header {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 30px;
+    color: white;
 }
 
 .links {
@@ -73,8 +74,40 @@ a:before {
     left: 0px;
   }
 
+  #divBusca{
+    background-color:#E0EEEE;
+    border:solid 2px #12121300;
+    border-radius:10px;
+    width:300px;
+    height:32px;
+  }
+  
+  #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:5px;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:191px;
+  }
+  
+  #btnBusca{
+    border:none;
+    float:left;
+    height:32px;
+    border-radius:0 7px 7px 0;
+    width:70px;
+    font-weight:bold;
+    background:#9e54a5;
+  }
+  
+  #divBusca img{
+    float:left;
+  }
+
 footer {
-    position: fixed;
+    display: flex;
     background-color: #5305a180;
     color: rgb(255, 255, 255);
     height: 80px;
