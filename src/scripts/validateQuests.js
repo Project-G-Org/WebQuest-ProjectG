@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         questionAnswers.push($("#question-1-selection").val(),$("#question-2-selection").val(), $("#question-3-selection").val(), $("#question-4-selection").val(), $("#question-5-selection").val())
 
-        let correctAnswers = ["b","a","c","d","a"];
+        let correctAnswers = ["b","d","d","c","c"];
 
         var totalPoints = 0;
         let wrongQuestions = [];
