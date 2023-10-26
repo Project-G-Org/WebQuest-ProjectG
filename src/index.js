@@ -3,15 +3,20 @@ const xpress = require('express');
 const cors = require("cors");
 const {v4: uuid} = require("uuid");
 const _ = require("lodash");
+const path = require("path");
 
 const app = xpress();
 
+const publicPath = path.join(__dirname,'public');
+
 app.use(xpress.json());
-app.use(xpress.static(__dirname+"/Site/styles/"));
+app.use("/style", xpress.static(publicPath + "/style"));
+app.use("/script", xpress.static(publicPath + "/script"));
+app.use("/img", xpress.static(publicPath + "/img"));
 
 app.get('/', (req,res) =>{
 
-    res.sendFile(__dirname + "/Site/index.html");
+    res.sendFile(`${publicPath}/webPages/index.html`);
 });
 
 app.get('/questions', (req, res) =>{
@@ -35,7 +40,9 @@ app.post("/login", (req, res) => {
     }
 
     res.status(201).json({
-        id: id
+        id: id,
+        username: username,
+        password: password 
     });
 });
 
