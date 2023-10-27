@@ -5,6 +5,7 @@ const {v4: uuid} = require("uuid");
 const _ = require("lodash");
 const path = require("path");
 const handlebars = require("express-handlebars");
+const bodyParser = require('body-parser');
 
 const app = xpress();
 
@@ -18,6 +19,9 @@ const app = xpress();
     app.use("/script", xpress.static(publicPath + "/script")); // NOTE: Js Scripts
     app.use("/img", xpress.static(publicPath + "/img")); // NOTE: imgs
 
+    app.use(bodyParser, urlencoded({extended: false}));
+    app.use(bodyParser.json());
+
     app.engine("handlebars", handlebars.engine({defaultLayout: 'main'})); // NOTE: HandleBars as Template engine
     app.set('view engine', 'handlebars'); // NOTE: ...
 // !SECTION ===============================================================
@@ -29,20 +33,8 @@ const app = xpress();
     });
 
     app.post("/", (req, res) => {
-        // NOTE: Request Name and Username
-        const id = uuid();
-        const username = req.body.username;
-        const password = req.body.password;
-
-        if(!username || !password){
-            return res.sendStatus(400);
-        }
-
-        res.status(201).json({
-            id: id,
-            username: username,
-            password: password 
-        });
+        // NOTE: Request Name and Username 
+        res.send('cuzinho foi');
     });
 
     app.get('/home', (req, res) =>{
