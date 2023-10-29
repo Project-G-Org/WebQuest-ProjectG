@@ -6,6 +6,9 @@ const _ = require("lodash");
 const path = require("path");
 const handlebars = require("express-handlebars");
 const bodyParser = require('body-parser');
+const WebQuest = require('./routes/WebQuest');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 const app = xpress();
 
@@ -19,41 +22,80 @@ const app = xpress();
     app.use("/script", xpress.static(publicPath + "/script")); // NOTE: Js Scripts
     app.use("/img", xpress.static(publicPath + "/img")); // NOTE: imgs
 
-    app.use(bodyParser, urlencoded({extended: false}));
-    app.use(bodyParser.json());
+    app.use(session({ //NOTE: Session configuration
+        secret: "WebQuest",
+        resave: true,
+        saveUninitialized: true
+    }));
+    app.use(flash());// NOTE: Messages That Desapear
+
+    app.use((req,res,next)=>{ // NOTE: Flahs Messages 
+        res.locals.success_msg = req.flash("success_msg");
+        res.locals.error_msg = req.flash("error_msg");
+        next();
+    });
+
+    app.use(bodyParser.urlencoded({extended: false}));// NOTE: Handle Forms
+    app.use(bodyParser.json());// NOTE: ...
 
     app.engine("handlebars", handlebars.engine({defaultLayout: 'main'})); // NOTE: HandleBars as Template engine
     app.set('view engine', 'handlebars'); // NOTE: ...
 // !SECTION ===============================================================
 
 // SECTION: ============================ Routes ===========================
+    app.use('/WebQuest', WebQuest);
+
     app.get('/', (req,res) =>{
         // NOTE: LogIn Page
         res.render('login');
     });
 
     app.post("/", (req, res) => {
-        // NOTE: Request Name and Username 
-        res.send('cuzinho foi');
+        // NOTE: Request Name and Username
+        let Username = req.body.User;
+        let Password = req.body.Pass;
+        var errors = [];
+
+        if(!Username || Username === null){
+            errors.push({text: "Usuário Não Foi Inserido"});
+        }
+        if(!Password || Password === null){
+            errors.push({text: "Senha Não Foi Inserida"});
+        }
+        if(errors.length > 0){
+            res.render("login", {errors: errors});
+        }
+        else{
+            req.flash("success_msg", "Login Efetivado com Sucesso");
+            res.redirect('/WebQuest/home');
+        };
+
     });
 
-    app.get('/home', (req, res) =>{
-        // NOTE: Home Page
-        res.render('home');
-    });
-
-    app.get('/material', (req, res) =>{
-        // NOTE: Material Page
-        res.render('material');
-    });
     app.get('/signup', (req, res) =>{
         // NOTE: Signup Page
         res.render('signUp');
     });
 
-    app.get('/questions', (req, res) =>{
-        // NOTE: Questions Form Page
-        res.render('quests');
+    app.post('/signup', (req,res) =>{
+        // NOTE: Creating ACC
+        let Username = req.body.User;
+        let Password = req.body.Pass;
+        var errors = []
+
+        if(!Username || Username === null){
+            errors.push({text: "Usuário Não Foi Inserido"});
+        }
+        if(!Password || Password === null){
+            errors.push({text: "Senha Não Foi Inserida"});
+        }
+        if(errors.length > 0){
+            res.render("signUp", {errors: errors});
+        }
+        else{
+            req.flash("success_msg", "Login Efetivado com Sucesso");
+            res.redirect('/');
+        };
     });
 // !SECTION ===============================================================
 

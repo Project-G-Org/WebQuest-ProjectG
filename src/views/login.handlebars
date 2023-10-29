@@ -1,12 +1,10 @@
 <head>
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="../style/login.css">
-    <link rel="stylesheet" type="text/css" href="../style/shared.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <title>Bibliotecas</title>
 </head>
 <body>
-    {{!-- <script src="../script/logIn.js"></script> --}}
 
     <main>
         <section id="login-screen">
@@ -20,12 +18,10 @@
                 </section>
                 <input type="submit" id="sbmt-btn" class="btn" value="login">
             </form>
+            {{#each errors}}
+                <div class="alert alert-danger m-1">{{text}}</div>
+                {{else}}
+            {{/each}}
         </section>
    </main>
-
-    <footer>
-        <section id="authors">
-            <span>Vitor Luiz | Gabriel Spinola | Lucas Vinicius | Guilherme Comunian | Supremo Felipe</span>
-        </section>
-  </footer>
  </body>
