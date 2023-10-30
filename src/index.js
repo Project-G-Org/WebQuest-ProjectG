@@ -6,9 +6,10 @@ const _ = require("lodash");
 const path = require("path");
 const handlebars = require("express-handlebars");
 const bodyParser = require('body-parser');
-const WebQuest = require('./routes/WebQuest');
+const WebQuestRouter = require('./routes/WebQuest');
 const session = require('express-session');
 const flash = require('connect-flash');
+const db = require("./db/db");
 
 const app = xpress();
 
@@ -43,7 +44,7 @@ const app = xpress();
 // !SECTION ===============================================================
 
 // SECTION: ============================ Routes ===========================
-    app.use('/WebQuest', WebQuest);
+    app.use('/WebQuest', WebQuestRouter);
 
     app.get('/', (req,res) =>{
         // NOTE: LogIn Page
@@ -104,3 +105,5 @@ app.listen(8080, ()=>{
     console.log('Server Startado Na Porta 8080');
 
 });
+
+// https://www.youtube.com/watch?v=tgYztVxL41Y

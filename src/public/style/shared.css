@@ -44,11 +44,11 @@ li {
 }
 
 a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    padding: 6px 20px;
-    border-radius: 12px;
+    text-decoration: none !important;
+    color: rgb(255, 255, 255) !important;
+    font-size: 18px !important;
+    padding: 6px 20px !important;
+    border-radius: 12px !important;
 }
 
 a:hover{
