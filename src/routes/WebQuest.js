@@ -1,5 +1,6 @@
-const webQuest = require('express').Router();
-const usersQuery = require('../queries/users');
+import { Express } from 'express';
+const webQuest = Express.Router();
+import { users } from '../queries/users.js';
 
 webQuest.get('/home', (req, res) =>{
     // NOTE: Home Page
@@ -16,6 +17,6 @@ webQuest.get('/questions', (req, res) =>{
     res.render('webQuest/quests');
 });
 
-webQuest.get('/users', usersQuery.getUsers);
+webQuest.get('/users', users.getUsers);
 
-module.exports = webQuest;
+export default webQuest;

@@ -11,6 +11,6 @@ const initOptions = {
 
 const pgp = require('pg-promise')(initOptions);
 
-const db = pgp("postgresql://postgres:1211@localhost:5432/users");
+const databaseConnetion = pgp("postgresql://postgres:1211@localhost:5432/users");
 
-module.exports = db;
+export default databaseConnetion;

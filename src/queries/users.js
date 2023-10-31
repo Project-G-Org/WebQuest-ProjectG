@@ -1,15 +1,21 @@
-const db = require('../db/db');
+import databaseConnection from '../db/db';
 
-module.exports = {
-    getUsers: async (req, res, next)=>{
-            try{
-                let users = await db.any("SELECT * FROM students");
-                res.status(200).json({
-                    users,
-                    status: "Succes"
-                })
-            }catch(err){
-                next(err);
-            }
-        }
+export default async function  getUsers(req, res, next){
+    try{
+        let users = await databaseConnection.any("SELECT * FROM students");
+        res.status(200).json({
+            users,
+            status: "Succes"
+        })
+    }catch(err){
+        next(err);
+    }
+}
+
+export function guilhermeSeuMerdaViraHomemEParaDeUsarEssaPorraDeArrowFunctionQueEraPraSerUmaPiadaEVirouIssoAi() {
+
+}
+
+const arrow = () => {
+
 }
