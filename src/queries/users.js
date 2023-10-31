@@ -1,7 +1,7 @@
 const db = require('../db/db');
 
 module.exports = {
-    test: async (req, res, next)=>{
+    getUsers: async (req, res, next)=>{
             try{
                 let users = await db.any("SELECT * FROM students");
                 res.status(200).json({

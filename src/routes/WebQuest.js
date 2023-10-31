@@ -16,6 +16,6 @@ webQuest.get('/questions', (req, res) =>{
     res.render('webQuest/quests');
 });
 
-webQuest.get('/', usersQuery.test);
+webQuest.get('/users', usersQuery.getUsers);
 
 module.exports = webQuest;
