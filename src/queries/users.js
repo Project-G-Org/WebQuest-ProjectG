@@ -1,6 +1,6 @@
-import databaseConnection from '../db/db';
+import databaseConnection from '../db/db.js';
 
-export default async function  getUsers(req, res, next){
+export default async function getUsers(req, res, next){
     try{
         let users = await databaseConnection.any("SELECT * FROM students");
         res.status(200).json({
@@ -10,12 +10,4 @@ export default async function  getUsers(req, res, next){
     }catch(err){
         next(err);
     }
-}
-
-export function guilhermeSeuMerdaViraHomemEParaDeUsarEssaPorraDeArrowFunctionQueEraPraSerUmaPiadaEVirouIssoAi() {
-
-}
-
-const arrow = () => {
-
 }

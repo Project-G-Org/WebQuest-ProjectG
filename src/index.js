@@ -6,16 +6,18 @@ import _ from 'lodash';
 import path from 'path';
 import handlebars from 'express-handlebars';
 import bodyParser from 'body-parser';
-import {WebQuest as WebQuestRouter} from './routes/WebQuest.js';
+import webQuest from './routes/WebQuest.js';
 import session from 'express-session';
 import flash from 'connect-flash';
 import databaseConnetion from './db/db.js';
 import userPages from './routes/User.js';
-
+import { fileURLToPath } from 'url';
 
 const app = xpress();
 
 // SECTION: ========================= Directories ========================= 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const publicPath = path.join(__dirname, 'public'); // NOTE: Public Dir
 // !SECTION ===============================================================
 
@@ -46,7 +48,7 @@ app.set('view engine', 'handlebars'); // NOTE: ...
 // !SECTION ===============================================================
 
 // SECTION: ============================ Routes ===========================
-app.use('/', WebQuestRouter);
+app.use('/', webQuest);
 app.use('/', userPages);
 // !SECTION ===============================================================
 
