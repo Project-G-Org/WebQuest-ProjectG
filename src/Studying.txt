@@ -1,0 +1,6 @@
+#TODO - Implementar o modelo de Factories 
+#TODO - Implementar a Injeção de Dependências utilizando mocks
+
+
+
+set PATH=C:\Users\Aluno_Tarde\Downloads\node-v20.9.0-win-x64\node-v20.9.0-win-x64;%PATH%

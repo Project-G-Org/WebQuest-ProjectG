@@ -1,6 +1,4 @@
-import fs from 'fs/promises';
-import cors from 'cors';
-import { v4 as uuid} from "uuid";
+import xpress from 'express';
 import _ from 'lodash';
 import path from 'path';
 import handlebars from 'express-handlebars';
@@ -8,10 +6,13 @@ import bodyParser from 'body-parser';
 import webQuest from './routes/WebQuest.js';
 import session from 'express-session';
 import flash from 'connect-flash';
-import databaseConnetion from './db/db.js';
 import userPages from './routes/User.js';
 import { fileURLToPath } from 'url';
 import webServer from './webServer.js';
+
+function createWebServer (){
+
+  var app = xpress();
 
 // SECTION: ========================= Directories ========================= 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,17 +52,22 @@ app.use('/', webQuest);
 app.use('/', userPages);
 // !SECTION ===============================================================
 
-try{
-    webServer.start(8080);
-    webServer.stop();
-} catch (err){
-    console.log('[index] Erro');
-    console.log(err);
+  function start(port){
+    app.listen(port, () =>{
+      start.created = '[WebServer] Servidor Criado'
+    });
+  };
+  
+  function stop(){
+    app.close(()=>{
+      stop.stopped = '[WebServer] Servidor Fechado'
+    });
+  };
+
+  return{
+    start,
+    stop
+  }
 };
 
-// https://www.youtube.com/watch?v=tgYztVxL41Y
-// https://www.youtube.com/watch?v=ldYcgPKEZC8
-
-// TODO - Single responsibility principle
-// TODO - Ecma Script
-// TODO - API service
+export default createWebServer;
