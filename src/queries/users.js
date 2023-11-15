@@ -5,7 +5,7 @@ export default async function getUsers(req, res, next){
         let users = await databaseConnection.any("SELECT * FROM students");
         res.status(200).json({
             users,
-            status: "Succes"
+            status: "Success"
         })
     }catch(err){
         next(err);

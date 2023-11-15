@@ -1,20 +1,8 @@
 import express from 'express'
+import ifNull from '../firstInfoValidation/login.js';
+import dbUsers from '../queries/users.js';
 
 const users = express.Router()
-
-function validation(username, password){
-    const errors = []
-
-    if (!username || username === null) { // TODO transform into validation function
-        errors.push({ text: "Usuário Não Foi Inserido" });
-    }
-
-    if (!password || password === null) {
-        errors.push({ text: "Senha Não Foi Inserida" });
-    }
-
-    return(errors);
-};
 
 users.get('/', (req, res) => {
     // NOTE: LogIn Page
@@ -26,11 +14,10 @@ users.post("/", (req, res) => {
     const username = req.body.User;
     const password = req.body.Pass;
     
-    const errors = validation(username, password);
+    const errors = ifNull(username, password);
 
     if (errors.length > 0) {
         res.render("signUp", { errors: errors });
-
         return
     }
 
@@ -48,7 +35,7 @@ users.post('/signup', (req, res) => {
     const username = req.body.User;
     const password = req.body.Pass;
 
-    const errors = validation(username, password);
+    const errors = ifNull(username, password);
 
     if (errors.length > 0) {
         res.render("signUp", { errors: errors });
@@ -56,7 +43,7 @@ users.post('/signup', (req, res) => {
         return
     }
 
-    req.flash("success_msg", "Login Efetivado com Sucesso");
+    req.flash("success_msg", "Conta Criada com Sucesso");
     res.redirect('/');
 });
 
