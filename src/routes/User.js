@@ -1,6 +1,6 @@
 import express from 'express'
 import ifNull from '../firstInfoValidation/login.js';
-import dbUsers from '../queries/users.js';
+
 
 const users = express.Router()
 
@@ -20,9 +20,14 @@ users.post("/", (req, res) => {
         res.render("signUp", { errors: errors });
         return
     }
-
-    req.flash("success_msg", "Login Efetivado com Sucesso");
-    res.redirect('/home');
+    else if (username === DB.User && password === DB.Pass){
+        req.flash("success_msg", "Login Efetivado com Sucesso");
+        res.status(200);
+        res.redirect('/home');
+    }
+    else{
+        res.status(400).end();
+    }    
 });
 
 users.get('/signup', (req, res) => {

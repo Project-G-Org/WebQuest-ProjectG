@@ -1,5 +1,4 @@
 import express from 'express';
-import users from '../queries/users.js';
 const  webQuest = express.Router();
 
 webQuest.get('/home', (req, res) =>{
@@ -16,7 +15,5 @@ webQuest.get('/questions', (req, res) =>{
     // NOTE: Questions Form Page
     res.render('webQuest/quests');
 });
-
-webQuest.get('/users', users);
 
 export default webQuest;
