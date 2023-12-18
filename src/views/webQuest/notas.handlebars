@@ -1,0 +1,23 @@
+<head>
+    <link rel="stylesheet" href="../style/home.css">
+    <title>home</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div id="nav-container">
+           <nav id="navbar">
+
+            <h1>WEB-QUEST SPINGOLAS</h1>
+           </nav>
+       </div>
+     </header>
+
+     <main>
+        {{#each data}}
+                <div class="alert alert-success">{{nome}} {{grade}}</div>
+            {{else}}
+        {{/each}}
+     </main>
+
+</body>
