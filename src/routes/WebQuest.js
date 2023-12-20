@@ -1,4 +1,6 @@
 import express from 'express';
+import {data, dbGradeError} from '../queries/usersGrades.js';
+
 const  webQuest = express.Router();
 
 webQuest.get('/home', (req, res) =>{
@@ -14,6 +16,11 @@ webQuest.get('/material', (req, res) =>{
 webQuest.get('/questions', (req, res) =>{
     // NOTE: Questions Form Page
     res.render('webQuest/quests');
+});
+
+webQuest.get('/leaderboard', (req, res) =>{
+
+	res.render('webQuest/leaderboard', {data});
 });
 
 export default webQuest;
