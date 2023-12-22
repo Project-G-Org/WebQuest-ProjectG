@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { myApplicationKey, myApplicationURL } from '../secrets.js';
+import { is } from 'type-is';
 
 const db = createClient(
   myApplicationURL,
@@ -9,7 +10,8 @@ const db = createClient(
 const { data, error } = await db 
   .from('students')
   .select('nome, grade')
-  .order('grade', {ascending: false}) 
+  .not('grade', 'is', null)
+  .order('grade', {ascending: false})
 ;
 
 export { 

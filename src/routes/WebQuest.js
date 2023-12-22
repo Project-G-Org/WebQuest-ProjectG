@@ -1,5 +1,5 @@
 import express from 'express';
-import {data, dbGradeError} from '../queries/usersGrades.js';
+import {data, dbGradeError} from '../queries/getUsersGrades.js';
 
 const  webQuest = express.Router();
 
