@@ -74,4 +74,9 @@ users.post('/signup', async (req, res) => {
 
 });
 
+users.post('/userAnswers', async (req, res) =>{
+    console.log(req.body);
+    res.status(200);
+});
+
 export default users;
