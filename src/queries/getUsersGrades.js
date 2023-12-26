@@ -1,6 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
 import { myApplicationKey, myApplicationURL } from '../secrets.js';
-import { is } from 'type-is';
 
 const db = createClient(
   myApplicationURL,
