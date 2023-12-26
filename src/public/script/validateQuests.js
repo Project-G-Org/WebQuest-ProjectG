@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("form").submit(function (e) { 
+    $("form").submit( async function (e) { 
 
         e.preventDefault();
 
@@ -8,24 +8,28 @@ $(document).ready(function () {
 
         questionAnswers.push($("#question-1-selection").val(),$("#question-2-selection").val(), $("#question-3-selection").val(), $("#question-4-selection").val(), $("#question-5-selection").val())
 
-        let correctAnswers = ["b","d","d","c","c"];
+        let result = await fetch('/userAnswers', {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(questionAnswers)
+        })
+        .then(response => response.json())
+        .then(data =>{
+            let totalPoints = data.points
+            let wrongQuestions = data.wrong
 
-        var totalPoints = 0;
-        let wrongQuestions = [];
-
-        $(questionAnswers).each(function(index, value){
-            if (value === correctAnswers[index]){
-                totalPoints++;
-            }
-            else{
-                wrongQuestions.push(Number(index)+1)
+            return {
+                totalPoints,
+                wrongQuestions
             }
         });
 
         $("#result").css("visibility", "visible")
 
-        if(totalPoints < 5){
-            $("#wrong-questions").text("As questões " + wrongQuestions + " Estão erradas")
+        if(result.totalPoints < 5){
+            $("#wrong-questions").text("As questões " + result.wrongQuestions + " Estão erradas")
             $("#wrong-questions-title").css("visibility", "visible")
             $("#wrong-questions-title").css("display", "block")
             $("#wrong-questions").css("visibility", "visible")
@@ -38,8 +42,8 @@ $(document).ready(function () {
             $("#wrong-questions-title").css("display", "none")    
         }
 
-        $("#total-grade").text(totalPoints + "/5");
-        sessionStorage.setItem("finalGrade", totalPoints);
+        $("#total-grade").text(result.totalPoints + "/5");
+        sessionStorage.setItem("finalGrade", result.totalPoints);
 
     });
 

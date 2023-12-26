@@ -1,7 +1,8 @@
 import express from 'express'
-import ifNull from '../firstInfoValidation/login.js';
+import ifNull from '../InfoValidation/login.js';
 import verifyLogIn from '../queries/usersLogin.js';
 import createAcc from '../queries/usersSingUp.js';
+import treatAnswers from '../InfoValidation/questionAnswers.js'
 
 const users = express.Router()
 
@@ -75,8 +76,10 @@ users.post('/signup', async (req, res) => {
 });
 
 users.post('/userAnswers', async (req, res) =>{
-    console.log(req.body);
-    res.status(200);
+
+    var userAnswers = req.body; 
+    var result = treatAnswers(userAnswers);
+    res.json(result);
 });
 
 export default users;
