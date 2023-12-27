@@ -1,10 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-import { myApplicationKey, myApplicationURL } from "../secrets.js";
-
-const db = createClient (
-  myApplicationURL,
-  myApplicationKey
-);
+import db from "./database.js";
 
 async function createAcc(username, password){
 
@@ -12,13 +6,7 @@ async function createAcc(username, password){
   .from('students')
   .insert({ nome: username, password: password })
 
-  if (error){
-    console.log(error)
-    return(false)
-  }
-  else {
-    return(true)
-  }
+  return !error
 };
 
 export default createAcc;

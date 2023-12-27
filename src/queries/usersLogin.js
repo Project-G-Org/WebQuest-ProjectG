@@ -1,10 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
-import { myApplicationKey, myApplicationURL } from "../secrets.js";
-
-const db = createClient(
-  myApplicationURL,
-  myApplicationKey
-);
+import db from "./database.js";
 
 async function verifyLogIn(user, password){
 
@@ -13,13 +7,12 @@ async function verifyLogIn(user, password){
   .select('*', {count: 'exact', head: true})
   .eq('nome', user, 'password', password)
 
-  if(count === 0){
-    return (false);
+  if (error){
+    console.error(error)
+    return false
   }
-  else{
-    return(true);
-  };
 
-};
+  return count >= 1
+}
 
 export default verifyLogIn;
