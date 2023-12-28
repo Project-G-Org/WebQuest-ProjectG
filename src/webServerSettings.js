@@ -26,9 +26,11 @@ function serverConfig(){
 
   app.use(session({ //NOTE: Session configuration
       secret: "WebQuest",
-      resave: true,
-      saveUninitialized: true
+      cookie: { maxAge: 30000 },
+      resave: false,
+      saveUninitialized: false
   }));
+
   app.use(flash());// NOTE: Messages That Desapear
 
   app.use((req, res, next) => { // NOTE: Flahs Messages 
