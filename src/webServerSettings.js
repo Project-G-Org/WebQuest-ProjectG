@@ -14,6 +14,7 @@ var app = xpress();
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const publicPath = path.join(__dirname, 'public'); // NOTE: Public Dir
+  const oneDay = 1000 * 60 * 60 * 24; 
   // !SECTION ===============================================================
 
 function serverConfig(){
@@ -26,9 +27,9 @@ function serverConfig(){
 
   app.use(session({ //NOTE: Session configuration
       secret: "WebQuest",
-      cookie: { maxAge: 30000 },
+      cookie: { maxAge: oneDay },
       resave: false,
-      saveUninitialized: false
+      saveUninitialized: true
   }));
 
   app.use(flash());// NOTE: Messages That Desapear

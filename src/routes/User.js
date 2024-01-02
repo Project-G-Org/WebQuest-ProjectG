@@ -106,4 +106,8 @@ users.post('/userAnswers', async (req, res) =>{
     res.json(result);
 });
 
+users.get('/test', (req, res) => {
+    
+});
+
 export default users;
